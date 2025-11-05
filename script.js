@@ -11,10 +11,10 @@ const iniciarOuPausarImg = document.querySelector('#start-pause img');
 const titulo = document.querySelector('.app__title');
 const botoes = document.querySelectorAll('.app__card-button');
 const musicaFocoInput = document.querySelector('#alternar-musica');
-const musica = new Audio('/sons/luna-rise-part-one.mp3');
-const playAudio = new Audio('/sons/play.wav');
-const pauseAudio = new Audio('/sons/pause.mp3');
-const beepAudio = new Audio('/sons/beep.mp3');
+const musica = new Audio('sons/luna-rise-part-one.mp3');
+const playAudio = new Audio('sons/play.wav');
+const pauseAudio = new Audio('sons/pause.mp3');
+const beepAudio = new Audio('sons/beep.mp3');
 const tempoNaTela = document.querySelector('#timer');
 let temporizadorFoco = 1500;
 let temporizadorCurto = 300;
@@ -30,7 +30,7 @@ musica.loop = true;
 function alterarContexto(contexto) {
     mostrarTempo();
     html.setAttribute('data-contexto', contexto);
-    appImage.setAttribute('src', `/imagens/${contexto}.png`);
+    appImage.setAttribute('src', `imagens/${contexto}.png`);
     switch (contexto) {
         case 'foco':
             titulo.innerHTML = `Otimize sua produtividade,<br>
@@ -105,7 +105,7 @@ const contagemRegressiva = () => {
     if (tempoDecorridoEmSegundos == 0) {
         beepAudio.play();
         iniciarOuPausarBt.innerHTML = `Começar`;
-        iniciarOuPausarImg.setAttribute('src', '/imagens/play_arrow.png');
+        iniciarOuPausarImg.setAttribute('src', 'imagens/play_arrow.png');
         alert('Tempo finalizado!');
         zerar();
         return;
@@ -117,10 +117,10 @@ const contagemRegressiva = () => {
 function iniciarOuPausar() {
     if (iniciarOuPausarBt.innerHTML == `Começar`) {
         iniciarOuPausarBt.innerHTML = `Pausar`;
-        iniciarOuPausarImg.setAttribute('src', '/imagens/pause.png');
+        iniciarOuPausarImg.setAttribute('src', 'imagens/pause.png');
     } else {
         iniciarOuPausarBt.innerHTML = `Começar`;
-        iniciarOuPausarImg.setAttribute('src', '/imagens/play_arrow.png');
+        iniciarOuPausarImg.setAttribute('src', 'imagens/play_arrow.png');
     }
     if (intervaloId) {
         zerar();
